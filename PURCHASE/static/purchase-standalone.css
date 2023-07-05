@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+*{
+	box-sizing:border-box;
+}
+
+body{
+	margin: 0;
+	padding:0;
+	scroll-behavior: smooth;
+	font-family: 'Kumbh Sans', sans-serif;
+	background-color: #fafafa;
+background-image:  radial-gradient(#141748 1.35px, transparent 1.35px), radial-gradient(#141748 1.35px, #fafafa 1.35px);
+background-size: 54px 54px;
+background-position: 0 0,27px 27px;
+}
+
+
+/*======= PURCHASE FORM ========*/
+div.purchase-form{
+  margin: 2em 5em;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+div.purchase-form div.form-text h1{
+	color: hsl(235, 40%, 26%);
+	font-size: 5em;
+	margin:0;
+	letter-spacing: 1px;
+	display:flex;
+	align-items: center;
+}
+div.purchase-form div.form-text h1 img{
+	width:60px;
+	height:60px;
+	border-radius:5px;
+	margin-right: 10px;
+}
+div.purchase-form div.form-text p{
+	color:hsl(235, 40%, 26%);
+	font-size: 1.5em;
+	font-weight:500;
+	letter-spacing: 1px;
+}
+
+
+
+
+/*=========== MAIN PURCHASE FORM ==========*/
+div.purchase-form div.main-form{
+	background-color: #fff;
+	padding:0;
+	border-radius:10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	width:50%;
+}
+div.purchase-form div.main-form p{
+	background-color:hsl(235, 40%, 26%);
+	top:0;
+	margin: 0;
+	position: sticky;
+	width:100%;
+	color:white;
+	text-transform: uppercase;
+	padding:10px;
+	font-weight: 700;
+	font-size: 14px;
+	text-align: center;
+	z-index:1;
+	letter-spacing: 1px;
+}
+div.purchase-form div.main-form form{
+	padding:2.5em 1em;
+}
+div.purchase-form div.main-form div.form-control {
+	margin-bottom: 2em;
+	position: relative;
+}
+
+/*input*/
+div.purchase-form div.main-form div.form-control input{
+	width:100%;
+	padding:1em;
+	font-family: inherit;
+	font-size:18px;
+	outline:none;
+	border:1px solid #ccc;
+	background: #fff;
+	border-radius:10px;
+	margin-bottom: 20px;
+
+}
+div.purchase-form div.main-form div.form-control input:hover, div.purchase-form div.main-form div.form-control input:focus{
+	border:1px solid hsl(248, 32%, 49%);
+	outline:none;
+}
+.success-field input{
+	width:100%;
+	padding:1em;
+	font-family: inherit;
+	font-size:18px;
+	background: #fff;
+	border-radius:10px;
+	margin-bottom: 20px;
+	outline:none;
+	border:2px solid hsl(154, 70%, 53%);
+}
+.error-field input{
+		width:100%;
+	padding:1em;
+	font-family: inherit;
+	font-size:18px;
+	background: #fff;
+	border-radius:10px;
+	margin-bottom: 20px;
+	outline:none;
+	border: 2px solid hsl(4, 150%, 50%);
+}
+
+
+/*small*/
+div.purchase-form div.main-form div.form-control small{
+	position: absolute;
+	right:0;
+
+}		
+.success-field small{
+	color:hsl(154, 50%, 53%);
+}
+.error-field small{
+	color:hsl(4, 150%, 50%);
+
+}
+
+
+
+
+
+
+/*button*/
+div.purchase-form div.main-form div.button button{
+	width:100%;
+	text-align: center;
+	font-family: inherit;
+	font-size: 20px;
+	padding:15px;
+	border:none;
+	outline:none;
+	border-radius:10px;
+	background-color: hsl(235, 40%, 26%);
+	color:#fff;
+}
+
+div.purchase-form div.main-form div.button button:hover, div.purchase-form div.main-form div.button button:focus {
+cursor: pointer;
+opacity: 0.5;
+}
+
+
+
+
+
+/*======= FOOTER =========*/
+footer{
+	width:100%;
+	position: fixed;
+	bottom:0;
+    background-color:hsl(235, 40%, 26%);
+    text-align: center;
+    text-transform: uppercase;
+    padding:8px;
+}
+footer p{
+	font-weight:700;
+	font-size: 14px;
+	letter-spacing: 2px;
+	margin: 0;
+	padding:0;
+}
+footer a{
+	color:white;
+	text-decoration: none;
+		position: relative;
+	transition: color 0.3s ease; 
+	border-bottom: 1px solid transparent;
+}
+footer a::after{
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #fff; 
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: transform 0.3s ease;
+}
+footer a:hover, footer a:focus {
+	cursor:pointer;
+}
+footer a:hover::after, footer a:focus::after{
+	transform: scaleX(1);
+}
+
+
+
+
+
+
+
+/*======== MEDIA QUERIES ============*/
+@media(max-width:1000px){
+	div.purchase-form{
+  margin: 2em;
+}
+}
+
+
+@media(max-width:860px){
+		div.purchase-form{
+  margin: 2em 1em;
+}
+	div.purchase-form div.form-text h1{
+	font-size: 3.5em;
+}
+div.purchase-form div.form-text h1 img{
+	width:50px;
+	height:50px;
+}
+div.purchase-form div.form-text p{
+	font-size: 1.1em;
+}
+div.purchase-form div.main-form{
+	width:60%;
+}
+
+}
+
+
+@media(max-width:750px){
+		div.purchase-form{
+		flex-direction: column;
+		justify-content: center;
+}
+	div.purchase-form div.form-text{
+	width:100%;
+		text-align: center;
+}
+		div.purchase-form div.form-text h1{
+justify-content: center;
+}
+
+
+div.purchase-form div.main-form{
+	width:100%;
+}
+
+}
+
+
+@media(max-width:500px){
+		div.purchase-form div.form-text h1{
+	font-size: 2.5em;
+}
+div.purchase-form div.form-text h1 img{
+	width:40px;
+	height:40px;
+}
+div.purchase-form div.form-text p{
+	font-size: 1em;
+}
+
+div.purchase-form div.main-form{
+	margin-top:1em;
+}
+}
+
+
+
+@media(max-width:400px){
+		div.purchase-form div.form-text h1{
+	font-size: 2em;
+}
+div.purchase-form div.form-text h1 img{
+	width:30px;
+	height:30px;
+}
+div.purchase-form div.form-text p{
+	font-size: 14px;
+}
+
+div.purchase-form div.main-form p{
+	font-size: 12px;
+}
+div.purchase-form div.main-form div.button button{
+	font-size: 16px;
+	}
+}

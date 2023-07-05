@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.ico' %}"> 
+
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- sweet alert css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.min.css">
+    <title>Download GradePro</title>
+</head>
+<body>
+
+    <!--======== NAVIGATION BAR START ================--->
+    <ul class="navbar">
+        <li class="nav-logo"><img src="{% static 'images/icon.jpg' %}"></li>
+        <li class="nav-list"><a href="#">Developer Tools</a></li>
+        <li class="nav-list"><a href="#">Team Tools</a></li>
+        <li class="nav-list"><a href="#">Education</a></li>
+        <li class="nav-list"><a href="#">Solutions</a></li>
+        <li class="nav-list"><a href="#">Support</a></li>
+        <li class="nav-list"><a href="#">Store</a></li>
+        <span class="mobile-nav-btn" onclick="openNav()">&#9776;</span>
+    </ul>
+
+
+    <div class="sideNav" id="sidenav">
+        <a class="closeBtn" onclick="closeNav()">&#10006;</a>
+        <a href="#">Developer Tools</a>
+        <a href="#">Team Tools</a>
+        <a href="#">Education</a>
+        <a href="#">Solutions</a>
+        <a href="#">Support</a>
+        <a href="#">Store</a>
+    </div>
+
+    <!--======== NAVIGATION BAR END ================--->
+
+
+
+
+
+    <!--============= HERO SECTION START=============-->
+    <div class="hero-section">
+
+
+        <!-- hero links start-->
+        <ul class="hero-links">
+            <li class="active" id="windows-standalone-link"><a>Windows (Standalone)</a></li>
+            <!-- <li class="not-active" id="windows-webview-link"><a>Windows (Webview)</a></li> -->
+        </ul>	
+        <!-- hero links end-->
+
+
+        <!-- Windows standalone start-->
+        <div class="hero-system-section windows-standalone" id="windows-standalone">
+
+            <div class="hero-system-text">
+                <h1><img src="{% static 'images/icon.jpg' %}">GradePro Standalone</h1>
+                <p>Uncover GPA Insights at Lightening Speed</p>
+                {% for x in prod %}
+                <a href="{% url 'purchaseStandalone' x.id %}" id="x.id">Purchase</a>
+                {% endfor %}
+                <small>Version: 2023.1.2</small>
+                <small>Build: 231.9014.32</small>
+            </div>
+
+            <div class="hero-system-video">
+                <iframe class="windows-standalone-video"  src="GradePro Guide.mp4" frameborder="0" allowfullscreen></iframe>
+                <a href="gradepro-guide.html">Click here to see documentation on GradePro Guide Tutorial</a>
+            </div>
+
+        </div>
+        <!-- Windows standalone end-->
+
+
+        <!-- Windows Webview start (not in use yet)-->
+        <div class="hero-system-section windows-webview" id="windows-webview">
+
+            <div class="hero-system-text">
+                <h1><img src="{% static 'images/icon.jpg' %}">GradePro Webview</h1>
+                <p>Uncover GPA Insights at Lightening Speed</p>
+                {% for x in prod %}
+                <a href="{% url 'purchaseStandalone' x.id %}" id="x.id">Purchase</a>
+                {% endfor %}
+                <small>Version: 2023.1.4</small>
+                <small>Build: 231.5774.32</small>
+            </div>
+
+            <div class="hero-system-video">
+                <iframe class="windows-webview-video"  width="560" height="315" src="https://www.youtube.com/embed/Uh9643c2P6k?start=21" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+        </div>
+        <!-- Windows Webview end (not in use yet)-->
+
+
+    </div>
+    <!--============= HERO SECTION END=============-->
+
+
+
+
+
+
+    <!--============= SECTION ONE START==============--->
+    <div class="section-one">
+
+        <div class="email-subscribe" id="emailSubscribe">
+            <p>Tell me about new product features as they come out</p>
+
+        <form id="myForm">
+                <div class="form-control">
+            <input type="email" id="email" name="email" placeholder="Email" autocomplete="off" >
+            <small id="emailError"></small>
+            <span>By submitting this form, I agree to the <a href="#">GradePro Privacy Policy</a></span>
+            <button onclick="submitEmail(event)">Submit</button>
+            </div>
+        </form>
+
+
+        </div>
+
+
+        <!-- contact us -->
+        <div class="contact-us">
+            <p>Contact Us</p>
+            <div class="social-icon"><i class="fa fa-whatsapp"></i> <a href="{% static 'https://api.whatsapp.com/send?phone=2348109682599' %}" target="_blank">Whatsapp</a></div>
+            <div class="social-icon"><i class="fa fa-telegram"></i> <a href="{% static 'https://t.me/markagugo' %}" target="_blank">Telegram</a></div>
+        </div>
+
+
+    </div>
+    <!--============= SECTION ONE END ==============--->
+
+
+
+
+    <!--============= FOOTER START ==============--->
+    <footer>
+        <span>Copyright &copy; 2023 Mac Tech Loop</span>
+    </footer>
+    <!--============= FOOTER END ==============--->
+
+
+
+
+
+
+
+    <!--=========== JAVASCRIPT PROGRAM ==============-->
+    {% block script %}
+    <script>
+
+        //mobile navigation bar
+        function openNav(){
+            document.getElementById("sidenav").style.width="65%";
+        }
+        function closeNav(){
+            document.getElementById("sidenav").style.width="0%";
+        }
+
+
+
+
+        // To display purchase forms when link is clicked
+        function purchaseStandalone() {
+            window.location.href = "purchase-standalone";
+        }
+
+        function purchaseWebview() {
+            window.location.href = "purchase-standalone";
+        }
+
+
+
+        // To display windows standalone and webview hero sections
+        const windowsstandalonelink = document.getElementById("windows-standalone-link");
+        const windowswebviewlink = document.getElementById("windows-webview-link");
+        const windowswebview = document.getElementById("windows-webview");
+        const windowsstandalone = document.getElementById("windows-standalone");
+
+        windowsstandalonelink.addEventListener("click", ()=> {
+            windowsstandalone.style.display="flex";
+            windowswebview.style.display="none";
+        });
+
+        windowswebviewlink.addEventListener("click", ()=> {
+            windowswebview.style.display="flex";
+            windowsstandalone.style.display="none";
+        });
+
+
+
+
+//To submit email 
+
+function validateEmail(email) {
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+return emailRegex.test(email);
+}
+
+function submitEmail(event) {
+event.preventDefault();
+const emailInput = document.getElementById('email');
+const emailError = document.getElementById('emailError');
+
+const email = emailInput.value.trim();
+
+if (email === '') {
+emailError.textContent = 'Please enter an email address.';
+return;
+}
+
+if (!validateEmail(email)) {
+emailError.textContent = 'Please enter a valid email address.';
+return;
+}
+
+
+Swal.fire({
+title: 'Success!',
+text: 'Email submitted successfully',
+icon: 'success',
+confirmButtonText: 'OK',
+}).then(() => {
+// Clear the input field and error message
+emailInput.value = '';
+emailError.textContent = '';
+});
+}
+
+    </script>
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.min.js"></script>
+</body>
+</html>
